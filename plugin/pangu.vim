@@ -41,7 +41,7 @@ function! PanGuCore()
         silent! %s/\(？\+\s*\)\(.\)/\?\ \2/g
         silent! %s/\(？\+\s*\)$/\?/g
         silent! %s/\(（\)/(/g
-        silent! %s/\(）\)/(/g
+        silent! %s/\(）\)/)/g
         silent! %s/\(‘\)/\'/g
         silent! %s/\(’\)/\'/g
         silent! %s/\(“\)/\"/g
@@ -183,6 +183,7 @@ function! PanGuDelSpaceAtStart()
 
         " 句首去除空格
         silent! %s/^\(\s\+\)\([0-9a-zA-Z「\"\u4e00-\u9fa5\u3040-\u30FF]\)/\2/g
+        silent! %s/^\(　\+\)//g
 
         call cursor(b:curline, b:curcol)
     endif
