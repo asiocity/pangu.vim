@@ -28,6 +28,8 @@ function! PanGuCore()
         " - `······`
         " @see [中文省略号应该垂直居中还是沉底？](https://www.zhihu.com/question/19593470)
         silent! %s/\(…\+\)/\.\.\./g
+        silent! %s/\(┅\+\)/\.\.\./g
+        silent! %s/\(　\+\)/\ /g
         silent! %s/\(。\{2,}\)/\.\.\./g
         silent! %s/\(，\{2,}\)/\.\.\./g
 
@@ -47,6 +49,7 @@ function! PanGuCore()
         silent! %s/\(“\)/\"/g
         silent! %s/\(”\)/\"/g
         silent! %s/\(＠\)/@/g
+        silent! %s/\(＆\)/&/g
 
         " 保留部分原来的中文符号
         silent! %s/\([\u4e00-\u9fa5\u3040-\u30FF]\)\\\s*/\1、/g
